@@ -6,6 +6,16 @@ export default {
     name: 'AppCard',
     props: {
         info: Object
+    },
+    data(){
+        return {
+            languageFlags: ['en', 'it', 'fr', 'de', 'es']
+        }
+    },
+    methods: {
+        getImagePath: function(imgPath) {
+            return new URL(imgPath, import.meta.url).href;
+        }
     }
 }
 
@@ -22,7 +32,10 @@ export default {
     <h3>{{ info.original_title }}</h3>
 
     <!-- lingua originale -->
-    <h4>{{ info.original_language }}</h4>
+    <h4 class="language">
+        <img v-if="languageFlags.includes(info.original_language)" :src="getImagePath(`../assets/${info.original_language}.png`)" alt="bandiera">
+        <img v-else src="../assets/earth.png" alt="">
+    </h4>
 
     <!-- voto medio -->
     <h4>{{ info.vote_average }}</h4>
@@ -36,6 +49,10 @@ export default {
 .card {
     margin-top: 10px;
     margin-bottom: 10px;
+
+    .language img {
+        width: 80px;
+    }
 }
 
 </style>

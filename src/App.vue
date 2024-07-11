@@ -44,6 +44,31 @@ export default {
       }  else {
         store.movieVisible = false;
       }
+    },
+
+    // method che indirizza una richiesta per le serie TV
+    getSeries() {
+      // aggiungiamo alla base url dell'api per le serie TV, il testo da cercare
+      let endPointTV = store.UrlApiTv+'&query='+store.searchText;
+
+      // richiesta axios
+      axios.get(endPointTV)
+      .then(function (response){
+        // console.log('axios tv serie', response.data.results);
+        store.series = response.data.results;
+        console.log('Queste sono le serie dentro l array in store', console.log(response.data.results));
+
+      })
+      .catch(function (error){
+        console.log(error);
+      })
+
+      // rendiamo visibile la lista delle serie solo se l array non è vuoto
+      if (store.UrlApiTv !== '') {
+        store.seriesVisible = true;
+      } else {
+        store.seriesVisible = false;
+      }
     }
   }
 
@@ -53,7 +78,7 @@ export default {
 
 <template>
 
-  <AppHeader @search="getMovie()" />
+  <AppHeader @search="getMovie(), getSeries()" />
 
   <AppMain />
 
