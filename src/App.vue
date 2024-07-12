@@ -5,6 +5,8 @@ import { store } from './store.js'
 // import axios
 import axios from 'axios';
 
+
+
 // import components
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
@@ -25,7 +27,7 @@ export default {
     // method per che indirizza una richiesta per i film
     getMovie() {
       // aggiungiamo alla base url dell'api il query con il testo da cercare
-      let endPoint = store.UrlAPiMovie+'&query='+store.searchText;
+      let endPoint = store.UrlAPiMovie+'&query='+store.searchText+'&language=it-IT';
 
       // richiesta axios
       axios.get(endPoint)
@@ -42,7 +44,7 @@ export default {
     // method che indirizza una richiesta per le serie TV
     getSeries() {
       // aggiungiamo alla base url dell'api per le serie TV, il testo da cercare
-      let endPointTV = store.UrlApiTv+'&query='+store.searchText;
+      let endPointTV = store.UrlApiTv+'&query='+store.searchText+'&language=it-IT';
 
       // richiesta axios
       axios.get(endPointTV)
@@ -66,9 +68,6 @@ export default {
   <AppHeader @search="getMovie(), getSeries()" />
 
   <AppMain />
-
-
-
 
 </template>
 

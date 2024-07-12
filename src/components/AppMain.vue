@@ -24,33 +24,70 @@ export default {
 
 <template>
 
-    <div class="movies">
+    <main>
 
-        <h2>Movies</h2>
+        <h2 class="movies-title">Movies</h2>
 
-        <AppCard v-if="store.movies.length !==0" v-for="movie in store.movies" :key="movie.id" :info="movie" />
-        <div v-else>Non ci sono Film, prova ad effettuare una ricerca</div>
+        <div class="movies">
 
-    </div>
+            
 
-    <div class="series">
+            <AppCard v-if="store.movies.length !==0" v-for="movie in store.movies" :key="movie.id" :info="movie" />
 
-        <h2>Serie Tv</h2>
+            <div class="no-items" v-else>Non ci sono Film, prova ad effettuare una ricerca</div>
 
-        <AppCardTv v-if="store.series.length !==0" v-for="serie in store.series" :key="serie.id" :infoTv="serie"  />
-        <div v-else>Non ci sono SerieTv, prova ad effettuare una ricerca</div>
+        </div>
 
-    </div>
+        <h2 class="series-title">Serie Tv</h2>
+
+        <div class="series">
+
+            
+
+            <AppCardTv v-if="store.series.length !==0" v-for="serie in store.series" :key="serie.id" :infoTv="serie"  />
+
+            <div v-else class="no-items">Non ci sono SerieTv, prova ad effettuare una ricerca</div>
+
+        </div>
+
+    </main>
+
+    
         
  
 </template>
 
 <style lang="scss" scoped>
-.movies h2 {
-    text-align: center;
+@use '../style/partials/variables' as *;
+
+main {
+    background-color: $grey;
+    min-height: calc(100vh - 80px);
 }
 
-.series h2 {
+.movies-title, .series-title {
+    color: $red;
     text-align: center;
+    font-size: 2rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-shadow: 0 0 2px #000; 
+    -moz-text-shadow: 0 0 2px #000;
+    -webkit-text-shadow: 0 0 2px #000;
 }
+
+.movies, .series {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.no-items {
+    font-size: 1.4rem;
+    margin: 0 auto;
+}
+
 </style>
