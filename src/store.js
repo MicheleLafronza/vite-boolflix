@@ -7,8 +7,6 @@ export const store = reactive ({
     movies: [],
     series: [],
     moviesVotes: [],
-    searchText: '',
-    movieVisible: false,
-    seriesVisible: false
+    searchText: ''
     
 });

@@ -15,6 +15,10 @@ export default {
     methods: {
         getImagePath: function(imgPath) {
             return new URL(imgPath, import.meta.url).href;
+        },
+        voteConversion(num){
+            var voteStar = (num * 5) / 10;
+            return Math.ceil(voteStar)
         }
     }
 }
@@ -43,7 +47,7 @@ export default {
     </h4>
 
     <!-- voto medio -->
-    <h4>{{ info.vote_average }}</h4>
+    <h4>{{ voteConversion(info.vote_average) }}</h4>
 
 </div>
     

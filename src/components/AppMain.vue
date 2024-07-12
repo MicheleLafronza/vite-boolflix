@@ -25,19 +25,21 @@ export default {
 
 <template>
 
-    <div v-show="store.movieVisible" class="movies">
+    <div class="movies">
 
         <h2>Movies</h2>
 
-        <AppCard v-for="movie in store.movies" :key="movie.id" :info="movie" />
+        <AppCard v-if="store.movies.length !==0" v-for="movie in store.movies" :key="movie.id" :info="movie" />
+        <div v-else>Non ci sono Film, prova ad effettuare una ricerca</div>
 
     </div>
 
-    <div v-show="store.seriesVisible" class="series">
+    <div class="series">
 
         <h2>Serie Tv</h2>
 
-        <AppCardTv v-for="serie in store.series" :key="serie.id" :infoTv="serie"  />
+        <AppCardTv v-if="store.series.length !==0" v-for="serie in store.series" :key="serie.id" :infoTv="serie"  />
+        <div v-else>Non ci sono SerieTv, prova ad effettuare una ricerca</div>
 
     </div>
         

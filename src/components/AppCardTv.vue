@@ -13,7 +13,11 @@
         methods: {
             getImagePath: function(imgPath) {
                 return new URL(imgPath, import.meta.url).href;
-            }
+            },
+            voteConversion(num){
+            var voteStar = (num * 5) / 10;
+            return Math.ceil(voteStar)
+        }
         }
     }
 
@@ -41,7 +45,7 @@
     </h4>
 
     <!-- voto medio -->
-    <h4>{{ infoTv.vote_average }}</h4>
+    <h4>{{ voteConversion(infoTv.average_vote) }}</h4>
 
 </div>
     

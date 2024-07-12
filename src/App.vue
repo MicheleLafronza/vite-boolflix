@@ -32,19 +32,11 @@ export default {
         .then(function (response){
           store.movies = response.data.results;
           console.log('Questi sono i film dentro l array in store', store.movies);
-          // store.moviesVotes = response.data.results.vote_average;
-          // console.log('Questi sono i voti dei film', store.moviesVotes);
         })
         .catch(function (error){
           console.log(error);
         })
 
-      // rendiamo visibile la lista dei film solo se l array non è vuoto
-      if (store.movies.length === 0 ) {
-        store.movieVisible = false;
-      }  else {
-        store.movieVisible = true;
-      }
     },
 
     // method che indirizza una richiesta per le serie TV
@@ -62,13 +54,6 @@ export default {
       .catch(function (error){
         console.log(error);
       })
-
-      // rendiamo visibile la lista delle serie solo se l array non è vuoto
-      if (store.series.length === 0) {
-        store.seriesVisible = false;
-      } else {
-        store.seriesVisible = true;
-      }
     }
   }
 
