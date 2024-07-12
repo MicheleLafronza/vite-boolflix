@@ -32,7 +32,7 @@
     <div class="card-front">
         <!-- copertina -->
         <img v-if="infoTv.poster_path !== null" :src="getImagePath(`https://image.tmdb.org/t/p/w342${infoTv.poster_path}`)" alt="">
-        <img v-else src="../assets/generic.png"></img>
+        <img v-else src="../assets/no-image.png"></img>
     </div>
 
     <div class="card-back">

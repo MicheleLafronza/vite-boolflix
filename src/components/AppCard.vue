@@ -34,7 +34,7 @@ export default {
         <div class="card-front">
             <!-- copertina -->
             <img v-if="info.poster_path !== null" :src="getImagePath(`https://image.tmdb.org/t/p/w342${info.poster_path}`)" alt="">
-            <img v-else src="../assets/generic.png"></img>
+            <img v-else src="../assets/no-image.png"></img>
         </div>
 
         <div class="card-back">
