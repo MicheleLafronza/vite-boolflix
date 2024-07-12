@@ -47,7 +47,7 @@ export default {
         <img v-else src="../assets/earth.png" alt="">
     </h4>
 
-    <!-- voto medio convertito a 1-5 con v-if per le stelline -->
+    <!-- voto medio convertito a 1-5 con v-if v-else if per le stelline -->
     <div v-if="voteConversion(info.vote_average) === 0">
         <i class="fa-regular fa-star"></i>
         <i class="fa-regular fa-star"></i>
