@@ -30,7 +30,6 @@ export default {
       // richiesta axios
       axios.get(endPoint)
         .then(function (response){
-          // console.log(response.data.results);
           store.movies = response.data.results;
           console.log('Questi sono i film dentro l array in store', store.movies);
         })
@@ -39,10 +38,10 @@ export default {
         })
 
       // rendiamo visibile la lista dei film solo se l array non è vuoto
-      if (store.movies.length !== '') {
-        store.movieVisible = true;
-      }  else {
+      if (store.movies.length === 0 ) {
         store.movieVisible = false;
+      }  else {
+        store.movieVisible = true;
       }
     },
 
@@ -54,9 +53,8 @@ export default {
       // richiesta axios
       axios.get(endPointTV)
       .then(function (response){
-        // console.log('axios tv serie', response.data.results);
         store.series = response.data.results;
-        console.log('Queste sono le serie dentro l array in store', console.log(response.data.results));
+        console.log('Queste sono le serie dentro l array in store', store.series);
 
       })
       .catch(function (error){
@@ -64,10 +62,10 @@ export default {
       })
 
       // rendiamo visibile la lista delle serie solo se l array non è vuoto
-      if (store.UrlApiTv !== '') {
-        store.seriesVisible = true;
-      } else {
+      if (store.series.length === 0) {
         store.seriesVisible = false;
+      } else {
+        store.seriesVisible = true;
       }
     }
   }

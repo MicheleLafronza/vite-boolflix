@@ -30,13 +30,14 @@ export default {
         <h2>Movies</h2>
 
         <AppCard v-for="movie in store.movies" :key="movie.id" :info="movie" />
+
     </div>
 
     <div v-show="store.seriesVisible" class="series">
 
         <h2>Serie Tv</h2>
 
-        <AppCardTv v-for="serie in store.series"  />
+        <AppCardTv v-for="serie in store.series" :key="serie.id" :infoTv="serie"  />
 
     </div>
         
