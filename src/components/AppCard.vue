@@ -37,7 +37,8 @@ export default {
 
     <!-- copertina -->
     <div>
-        <img :src="getImagePath(`https://image.tmdb.org/t/p/w342${info.poster_path}`)" alt="">
+        <img v-if="info.poster_path !== null" :src="getImagePath(`https://image.tmdb.org/t/p/w342${info.poster_path}`)" alt="">
+        <span v-else>Nessuna immagine</span>
     </div>
 
     <!-- lingua originale -->
@@ -46,8 +47,55 @@ export default {
         <img v-else src="../assets/earth.png" alt="">
     </h4>
 
-    <!-- voto medio -->
-    <h4>{{ voteConversion(info.vote_average) }}</h4>
+    <!-- voto medio convertito a 1-5 con v-if per le stelline -->
+    <div v-if="voteConversion(info.vote_average) === 0">
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+    </div>
+
+    <div v-else-if="voteConversion(info.vote_average) === 1">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+    </div>
+
+    <div v-else-if="voteConversion(info.vote_average) === 2">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+    </div>
+
+    <div v-else-if="voteConversion(info.vote_average) === 3">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+    </div>
+
+    <div v-else-if="voteConversion(info.vote_average) === 4">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+    </div>
+
+    <div v-else-if="voteConversion(info.vote_average) === 5">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
 
 </div>
     

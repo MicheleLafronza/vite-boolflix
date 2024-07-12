@@ -2,7 +2,6 @@
 // import dei dati store
 import { store } from '../store.js';
 
-
 // import components
 import AppCard from './AppCard.vue';
 import AppCardTv from './AppCardTv.vue';
