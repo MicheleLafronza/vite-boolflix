@@ -29,6 +29,11 @@
     <!-- titolo originale -->
     <h3>{{ infoTv.original_name }}</h3>
 
+    <!-- copertina -->
+    <div>
+        <img :src="getImagePath(`https://image.tmdb.org/t/p/w342${infoTv.poster_path}`)" alt="">
+    </div>
+
     <!-- lingua originale -->
     <h4 class="language">
         <img v-if="languageFlags.includes(infoTv.original_language)" :src="getImagePath(`../assets/${infoTv.original_language}.png`)" alt="bandiera">

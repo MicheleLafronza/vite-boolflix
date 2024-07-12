@@ -31,6 +31,11 @@ export default {
     <!-- titolo originale -->
     <h3>{{ info.original_title }}</h3>
 
+    <!-- copertina -->
+    <div>
+        <img :src="getImagePath(`https://image.tmdb.org/t/p/w342${info.poster_path}`)" alt="">
+    </div>
+
     <!-- lingua originale -->
     <h4 class="language">
         <img v-if="languageFlags.includes(info.original_language)" :src="getImagePath(`../assets/${info.original_language}.png`)" alt="bandiera">

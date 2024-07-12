@@ -32,6 +32,8 @@ export default {
         .then(function (response){
           store.movies = response.data.results;
           console.log('Questi sono i film dentro l array in store', store.movies);
+          // store.moviesVotes = response.data.results.vote_average;
+          // console.log('Questi sono i voti dei film', store.moviesVotes);
         })
         .catch(function (error){
           console.log(error);
