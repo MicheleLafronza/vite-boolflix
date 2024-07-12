@@ -38,10 +38,10 @@
     <div class="card-back">
 
         <!-- titolo del film -->
-        <h3 class="inside-elements"><span style="font-weight: 900;">Titolo:</span> {{ infoTv.title }}</h3>
+        <h3 class="inside-elements"><span style="font-weight: 900;">Titolo:</span> {{ infoTv.name }}</h3>
 
         <!-- titolo originale -->
-        <h3 class="inside-elements"><span style="font-weight: 900;">Titolo Originale:</span> {{ infoTv.original_title }}</h3>
+        <h3 class="inside-elements"><span style="font-weight: 900;">Titolo Originale:</span> {{ infoTv.original_name }}</h3>
 
         <p class="inside-elements"><span style="font-weight: 900;">Trama:</span> {{ infoTv.overview }}</p>
 
