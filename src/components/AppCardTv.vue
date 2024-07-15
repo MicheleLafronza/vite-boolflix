@@ -22,7 +22,7 @@
             var positiveStar = (num * 5) / 10;
             var blank = 5 - Math.ceil(positiveStar);
             return blank 
-        }
+            }
         }
     }
 
