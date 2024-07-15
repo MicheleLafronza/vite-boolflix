@@ -19,6 +19,11 @@ export default {
         voteConversion(num){
             var voteStar = (num * 5) / 10;
             return Math.ceil(voteStar)
+        },
+        blankStars(num){
+            var positiveStar = (num * 5) / 10;
+            var blank = 5 - Math.ceil(positiveStar);
+            return blank 
         }
     }
 }
@@ -54,59 +59,14 @@ export default {
                 <img v-else src="../assets/earth.png" alt="">
             </div>
 
-            <!-- voto medio convertito a 1-5 con v-if v-else if per le stelline -->
-            <div v-if="voteConversion(info.vote_average) === 0">
+
+            <!-- voto medio convertito 1-5 -->
+            <div class="stars inside-elements">
+
                 <span style="font-weight: 900;">Voto:</span>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
+                <i v-for="n in voteConversion(info.vote_average)" class="fa-solid fa-star"></i>
+                <i v-for="n in blankStars(info.vote_average)" class="fa-regular fa-star"></i>
 
-            <div v-else-if="voteConversion(info.vote_average) === 1">
-                <span style="font-weight: 900;">Voto: </span>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
-
-            <div v-else-if="voteConversion(info.vote_average) === 2">
-                <span style="font-weight: 900;">Voto: </span>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
-
-            <div v-else-if="voteConversion(info.vote_average) === 3">
-                <span style="font-weight: 900;">Voto: </span>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
-
-            <div v-else-if="voteConversion(info.vote_average) === 4">
-                <span style="font-weight: 900;">Voto: </span>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-            </div>
-
-            <div v-else-if="voteConversion(info.vote_average) === 5">
-                <span style="font-weight: 900;">Voto: </span>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
             </div>
 
         </div>
